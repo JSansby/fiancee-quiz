@@ -1,0 +1,174 @@
+:root {
+  --bg1: #070a12;
+  --bg2: #101a33;
+  --card: rgba(255,255,255,0.06);
+  --stroke: rgba(255,255,255,0.10);
+  --text: #f4f7ff;
+  --muted: rgba(255,255,255,0.65);
+  --accent: #ffd166;
+  --good: #54e39a;
+  --bad: #ff5a7a;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(1200px 800px at 20% 10%, #213b77 0%, var(--bg1) 55%, #04050a 100%);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  padding: 18px;
+}
+
+/* “iPhone” frame */
+.phone {
+  width: min(390px, 100%);           /* iPhone-ish width */
+  aspect-ratio: 390 / 844;           /* iPhone 12/13/14-ish */
+  border-radius: 34px;
+  padding: 12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.04));
+  box-shadow: 0 28px 90px rgba(0,0,0,0.55);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.screen {
+  height: 100%;
+  width: 100%;
+  border-radius: 26px;
+  background:
+    radial-gradient(900px 600px at 10% 0%, rgba(255,209,102,0.12) 0%, transparent 55%),
+    radial-gradient(900px 600px at 90% 20%, rgba(84,227,154,0.10) 0%, transparent 55%),
+    linear-gradient(180deg, var(--bg2), #070a12 70%);
+  border: 1px solid rgba(255,255,255,0.10);
+  overflow: hidden;
+
+  /* iOS safe area support */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Top bar */
+.top {
+  padding: 18px 18px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.pill {
+  width: 110px;
+  height: 26px;
+  border-radius: 18px;
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.10);
+}
+.progress {
+  font-size: 14px;
+  color: var(--muted);
+  letter-spacing: 0.2px;
+}
+
+/* Main content */
+.content {
+  height: calc(100% - 110px);
+  padding: 4px 18px 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.qTitle {
+  margin: 4px 0 6px;
+  font-size: 22px;
+  color: var(--muted);
+  font-weight: 650;
+}
+.qText {
+  margin: 0 0 12px;
+  font-size: 28px;
+  line-height: 1.15;
+  font-weight: 800;
+}
+
+/* Feedback */
+.feedback {
+  min-height: 44px;
+  margin: 6px 0 10px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  font-size: 32px;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+.feedback.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.feedback.bad { color: var(--bad); }
+.feedback.good { color: var(--good); }
+
+/* Answers */
+.answers {
+  display: grid;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.btn {
+  border: 0;
+  border-radius: 18px;
+  padding: 14px 14px;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text);
+  background: var(--card);
+  border: 1px solid var(--stroke);
+  text-align: left;
+  cursor: pointer;
+  transition: transform 120ms ease, background 200ms ease, opacity 260ms ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn:active { transform: scale(0.98); }
+.btn:hover { background: rgba(255,255,255,0.09); }
+
+.btn .num {
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.12);
+  font-size: 14px;
+}
+
+.btn.wrongFade {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.98);
+}
+
+/* Next button */
+.nextWrap { margin-top: auto; padding-top: 14px; }
+.next {
+  width: 100%;
+  background: var(--accent);
+  color: #151515;
+  border: 0;
+  text-align: center;
+}
+.hidden { display: none; }
+
+.bottom {
+  padding: 10px 18px 16px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.hint {
+  color: rgba(255,255,255,0.55);
+  font-size: 12px;
+}

@@ -3,24 +3,21 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>For You ❤️</title>
+  <title>super secret quiz</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <!-- iPhone-style shell -->
   <div class="phone">
-    <div class="screen" role="application" aria-label="Surprise quiz">
+    <div class="screen" role="application" aria-label="Super secret quiz">
       <header class="top">
         <div class="pill" aria-hidden="true"></div>
-        <div class="progress" id="progress">Question 1</div>
+        <div class="progress" id="progress">super secret quiz</div>
       </header>
 
       <main class="content">
         <h1 class="qTitle" id="qTitle">Question 1</h1>
-        <p class="qText" id="qText">What is cooler?</p>
-
-        <div class="feedback" id="feedback" aria-live="polite"></div>
+        <p class="qText" id="qText">Loading…</p>
 
         <div class="answers" id="answers"></div>
 
@@ -32,6 +29,18 @@
       <footer class="bottom">
         <div class="hint" id="hint">Tap an answer</div>
       </footer>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modalOverlay hidden" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <div class="modalTop">
+        <div class="modalBadge" id="modalBadge">Oops</div>
+        <div class="modalTitle" id="modalTitle">Message</div>
+      </div>
+      <p class="modalMessage" id="modalMessage"></p>
+      <button class="btn modalBtn" id="modalCloseBtn" type="button">OK</button>
     </div>
   </div>
 

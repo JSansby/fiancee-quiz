@@ -22,10 +22,10 @@ body {
   padding: 18px;
 }
 
-/* “iPhone” frame */
+/* iPhone-style frame */
 .phone {
-  width: min(390px, 100%);           /* iPhone-ish width */
-  aspect-ratio: 390 / 844;           /* iPhone 12/13/14-ish */
+  width: min(390px, 100%);
+  aspect-ratio: 390 / 844;
   border-radius: 34px;
   padding: 12px;
   background: linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.04));
@@ -43,8 +43,6 @@ body {
     linear-gradient(180deg, var(--bg2), #070a12 70%);
   border: 1px solid rgba(255,255,255,0.10);
   overflow: hidden;
-
-  /* iOS safe area support */
   padding-top: env(safe-area-inset-top);
   padding-bottom: env(safe-area-inset-bottom);
 }
@@ -67,7 +65,8 @@ body {
 .progress {
   font-size: 14px;
   color: var(--muted);
-  letter-spacing: 0.2px;
+  letter-spacing: 0.3px;
+  text-transform: lowercase;
 }
 
 /* Main content */
@@ -86,35 +85,16 @@ body {
 }
 .qText {
   margin: 0 0 12px;
-  font-size: 28px;
+  font-size: 26px;
   line-height: 1.15;
-  font-weight: 800;
+  font-weight: 850;
 }
-
-/* Feedback */
-.feedback {
-  min-height: 44px;
-  margin: 6px 0 10px;
-  font-weight: 900;
-  letter-spacing: 1px;
-  font-size: 32px;
-  text-transform: uppercase;
-  opacity: 0;
-  transform: translateY(-6px);
-  transition: opacity 180ms ease, transform 180ms ease;
-}
-.feedback.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-.feedback.bad { color: var(--bad); }
-.feedback.good { color: var(--good); }
 
 /* Answers */
 .answers {
   display: grid;
   gap: 12px;
-  margin-top: 6px;
+  margin-top: 8px;
 }
 
 .btn {
@@ -171,4 +151,70 @@ body {
 .hint {
   color: rgba(255,255,255,0.55);
   font-size: 12px;
+}
+
+/* Modal */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: grid;
+  place-items: center;
+  padding: 22px;
+}
+
+.modal {
+  width: min(420px, 100%);
+  background: rgba(18, 26, 41, 0.96);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 22px;
+  padding: 18px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+}
+
+.modalTop {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.modalBadge {
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.06);
+}
+
+.modalTitle {
+  font-weight: 900;
+  font-size: 16px;
+  color: rgba(255,255,255,0.85);
+}
+
+.modalMessage {
+  margin: 0 0 14px;
+  line-height: 1.5;
+  font-size: 18px;
+}
+
+.modalBtn {
+  width: 100%;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.16);
+  text-align: center;
+}
+
+/* Badge color states */
+.modalBadge.good {
+  color: var(--good);
+  border-color: rgba(84,227,154,0.35);
+}
+.modalBadge.bad {
+  color: var(--bad);
+  border-color: rgba(255,90,122,0.35);
 }

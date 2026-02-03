@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>For You ❤️</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- iPhone-style shell -->
+  <div class="phone">
+    <div class="screen" role="application" aria-label="Surprise quiz">
+      <header class="top">
+        <div class="pill" aria-hidden="true"></div>
+        <div class="progress" id="progress">Question 1</div>
+      </header>
+
+      <main class="content">
+        <h1 class="qTitle" id="qTitle">Question 1</h1>
+        <p class="qText" id="qText">What is cooler?</p>
+
+        <div class="feedback" id="feedback" aria-live="polite"></div>
+
+        <div class="answers" id="answers"></div>
+
+        <div class="nextWrap">
+          <button class="btn next hidden" id="nextBtn">Next →</button>
+        </div>
+      </main>
+
+      <footer class="bottom">
+        <div class="hint" id="hint">Tap an answer</div>
+      </footer>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
